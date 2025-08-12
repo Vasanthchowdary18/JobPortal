@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            background-image: url('logbg.jpg');
+            align-content:flex-end ;
+            background-size: cover;
+        }
+        .login-container {
+            margin-top: 100px;
+        }
+        .login-form {
+            background-color: rgba(0, 0, 0, .7);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .login-form h3 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+        .input-field{
+    font-size: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    height: 50px;
+    width: 100%;
+    padding: 0 10px 0 45px;
+    border: none;
+    border-radius: 30px;
+    outline: none;
+    transition: .2s ease;
+}
+
+.input-field:hover, .input-field:focus{
+    background: rgba(255, 255, 255, 0.25);
+}
+::-webkit-input-placeholder{
+    color: #fff;
+
+}
+
+
+.input-box i{
+    position: relative;
+    top: -35px;
+    left: 17px;
+    color: #fff;
+}
+        
+        .btn-login {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-login:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        .forgot-password {
+            text-align: right;
+            margin-top: 10px;
+        }
+        .forgot-password a {
+            color: #007bff;
+        }
+        .forgot-password a:hover {
+            color: #0056b3;
+        }
+        .checkbox{
+            font-family:'Times New Roman', Times, serif ;
+            color: #fff;
+           
+        }
+        /* Add a custom class for username input change */
+        .username-input-valid {
+            background-color: #95d0dc79 !important;
+        }
+    </style>
+    <script>
+        function validateLoginForm(event) {
+            event.preventDefault();
+
+            // Get form fields
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            // Validate username
+            if (username === '') {
+                alert('Username is required');
+                return;
+            }
+
+            // Validate password
+            if (password === '') {
+                alert('Password is required');
+                return;
+            }
+
+            // If all validations pass
+            alert('Login successful');
+            // You can submit the form here if needed
+            // document.getElementById('login-form').submit();
+        }
+
+        $(document).ready(function(){
+            // Listen for input change event on the username input field
+            $('#username').on('input', function(){
+                // Add class to change background color when the username is entered
+                $(this).addClass('username-input-valid');
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container login-container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card login-form">
+                    <div class="card-body">
+                        <h3>Login</h3>
+                        <form id="login-form" onsubmit="validateLoginForm(event)">
+                            <div class="input-box">
+                                <input type="text" class="input-field" placeholder="Username or Email">
+                                <i class="bx bx-user"></i>
+                            </div>
+                            <div class="input-box">
+                                <input type="password" class="input-field" placeholder="Password">
+                                <i class="bx bx-lock-alt"></i>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block btn-login">Login</button>
+                        </form>
+                    <div class="checkbox">
+                        <input type="checkbox"> Remember me </div>
+                        <div class="forgot-password">
+                            <a href="fr.html">Forgot Password?</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
